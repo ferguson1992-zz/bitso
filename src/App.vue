@@ -9,54 +9,47 @@
         href="https://bitso.com/"
         target="_blank"
         color="primary"
-        dark
+        outline
       >
         BITSO
       </v-btn>
     </v-toolbar>
 
-    <v-content>
-      <component :is="active"></component>
+    <v-content fluit fill-height>
+      <v-layout justify-center align-center row wrap>
+          <v-flex xs11 sm10 xl8>
+            <component :is="active"></component>
+          </v-flex>
+      </v-layout>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import {service} from './helpers/service';
-
-service('ticker');
-let bitso = new WebSocket('wss://ws.bitso.com');
-
-bitso.onopen = () => {
-  bitso.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'trades' }));
-  //bitso.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'diff-orders' }));
-  //bitso.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'orders' }));
-}
-
-bitso.onmessage = _response => {
-  let response = JSON.parse(_response.data);
-  if(response.payload) console.log(response)
-}
+import {connect, apiBitso} from './helpers/service';
+import Home from './pages/Home';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Home
   },
   data () {
     return {
-      active: 'HelloWorld'
+      active: 'home'
     }
+  },
+  methods : {
+    init() {
+      connect();
+      apiBitso().then(_res => console.log(_res))
+    }
+  },
+  mounted() {
+    this.init()
   }
 }
 </script>
-
-<style lang="scss">
-  .logo{
-    height: 100%;
-  }
-</style>
 
 
 
