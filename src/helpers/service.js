@@ -3,7 +3,7 @@ import axios from 'axios';
 export const URL = {
     socket: 'wss://ws.bitso.com',
     pre: 'http://localhost:8080/test/test/',
-    pro: ''
+    pro: 'http://test.tpinteractiva.com/test/'
 }
 
 export const connect = () => {
@@ -20,7 +20,7 @@ export const connect = () => {
                 date = new Date();
             date = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
             let data = {id: i, value: v, rate: r, amount: a, date: date };
-            service(URL.pre+'data', data, 'POST');
+            service(URL.pro+'data', data, 'POST');
         }  
     }
 }

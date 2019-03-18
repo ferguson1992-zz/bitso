@@ -6,7 +6,7 @@
     >
       <v-sparkline v-if="info"
         :labels="labels"
-        :value="values"
+        :value="value"
         color="orange"
         line-width="1"
         padding="10"
@@ -22,12 +22,12 @@ export default {
       labels() {
         if(this.info){
           return this.info.map(_res => {
-            let label = _res.date[1].substr(3)
+            let label = _res.date[1];
             return label.replace('0', '');
           });
         }
       },
-      values() {
+      value() {
         if(this.info){
           return this.info.map(_res => parseInt(_res.rate));
         }
@@ -35,4 +35,13 @@ export default {
     }
 }
 </script>
+<style lang="scss" >
+  .v-window-item {
+    text {
+      font-size: 4px;
+    }
+  }
+  
+</style>
+
 

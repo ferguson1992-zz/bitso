@@ -33,50 +33,50 @@ export default {
                 month =  `${date.getMonth() + 1}`;
             if(month.length <= 1) month = `0${month}`;
             date = `${date.getFullYear()}-${month}-${date.getDate()}`;
-            let url = `${URL.pre}indicators/${date}`;
+            let url = `${URL.pro}indicators/${date}`;
             let response = await service(url);
             commit('getIndicators', response.data.data);
         },
         getOneHour: async ({commit}) => {
             let date = new Date(),
-                hour = date.getHours() - 1,
+                hour = date.getHours(),
                 month =  `${date.getMonth() + 1}`;
             if(month.length <= 1) month = `0${month}`;
             date = `${date.getFullYear()}-${month}-${date.getDate()}`;
-            let url = `${URL.pre}one_hour/${date}/${hour}`,
+            let url = `${URL.pro}one_hour/${date}/${hour}`,
                 response = await service(url);
             response = filter(response.data.data);
             commit('getOneHour', response);
         },
         getSixHours: async ({commit}) => {
             let date = new Date(),
-                hour = date.getHours() - 6,
+                hour = date.getHours(),
                 month =  `${date.getMonth() + 1}`;
             if(month.length <= 1) month = `0${month}`;
             date = `${date.getFullYear()}-${month}-${date.getDate()}`;
-            let url = `${URL.pre}six_hours/${date}/${hour}`,
+            let url = `${URL.pro}six_hours/${date}/${hour}`,
                 response = await service(url);
             response = filter(response.data.data);
             commit('getSixHours', response);
         },
         getTwelveHours: async ({commit}) => {
             let date = new Date(),
-                hour = date.getHours() - 12,
+                hour = date.getHours(),
                 month =  `${date.getMonth() + 1}`;
             if(month.length <= 1) month = `0${month}`;
             date = `${date.getFullYear()}-${month}-${date.getDate()}`;
-            let url = `${URL.pre}twelve_hours/${date}/${hour}`,
+            let url = `${URL.pro}twelve_hours/${date}/${hour}`,
                 response = await service(url);
             response = filter(response.data.data);
             commit('getTwelveHours', response);
         },
         getTwentyFourHours: async ({commit}) => {
             let date = new Date(),
-                hour = date.getHours() - 24,
+                hour = date.getHours(),
                 month =  `${date.getMonth() + 1}`;
             if(month.length <= 1) month = `0${month}`;
             date = `${date.getFullYear()}-${month}-${date.getDate()}`;
-            let url = `${URL.pre}twenty_four_hours/${date}/${hour}`,
+            let url = `${URL.pro}twenty_four_hours/${date}/${hour}`,
                 response = await service(url);
             response = filter(response.data.data);
             commit('getTwentyFourHours', response);

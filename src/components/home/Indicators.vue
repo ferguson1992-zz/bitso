@@ -24,6 +24,7 @@
 </template>
 <script>
 import {mapActions, mapState} from 'vuex';
+import { setInterval } from 'timers';
 
 export default {
     name: 'Indicators',
@@ -36,10 +37,14 @@ export default {
         ...mapState('bitcoin', ['indicators'])
     },
     methods: {
-        ...mapActions('bitcoin', ['getIndicators'])
+        ...mapActions('bitcoin', ['getIndicators']),
+        init() {
+            this.getIndicators();
+            setInterval(() => this.getIndicators(), 30000);
+        }
     },
     mounted(){
-        this.getIndicators();
+        this.init();
     }
 }
 </script>
