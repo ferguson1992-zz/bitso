@@ -42,7 +42,6 @@ export default {
   methods : {
     init() {
       connect();
-      apiBitso().then(_res => console.log(_res))
     }
   },
   mounted() {

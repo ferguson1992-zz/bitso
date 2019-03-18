@@ -9,14 +9,20 @@
         <v-flex xs12>
             <indicators/>
         </v-flex>
+        <v-flex xs12 mb-5>
+            <graphs/>
+        </v-flex>
     </v-layout>
 </template>
 <script>
 import Indicators from '@/components/home/Indicators';
+import Graphs from '@/components/home/Graphs';
+
 export default {
     name: 'Home',
     components: {
-        Indicators
+        Indicators,
+        Graphs
     }
 }
 </script>
