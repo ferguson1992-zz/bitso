@@ -1,6 +1,6 @@
 # bitcoin
 
-## Project setup
+## Project install
 ```
 npm install
 ```
@@ -14,16 +14,6 @@ npm run serve
 ```
 npm run build
 ```
+### Production link
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[heroku](https://test-bitcoin.herokuapp.com/)
