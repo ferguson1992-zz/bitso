@@ -23,7 +23,7 @@ export default {
         if(this.info){
           return this.info.map(_res => {
             let label = _res.date[1];
-            return label.replace('0', '');
+            return label;
           });
         }
       },

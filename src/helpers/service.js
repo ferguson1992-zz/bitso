@@ -3,7 +3,7 @@ import axios from 'axios';
 export const URL = {
     socket: 'wss://ws.bitso.com',
     pre: 'http://localhost:8080/test/test/',
-    pro: 'http://test.tpinteractiva.com/test/'
+    pro: 'https://test.tpinteractiva.com/test/'
 }
 
 export const connect = () => {
